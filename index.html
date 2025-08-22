@@ -4,8 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dice Roller</title>
+    <style>
+        .main-div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 30px;
+            margin: 50px 540px;
+            box-shadow: 1px 1px 2px 1px grey;
+        }
+        #dice-img{
+            width: 240px;
+            height: auto;
+            padding: 30px 15px;
+            box-shadow: 1px 1px 1px 1px grey;
+            border-radius: 13px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+    <div class="main-div"> 
     <h1>Dice Roller🎲</h1>
+    <img src="default.png" alt="dice-1" id="dice-img" onclick="rollDice()">
+    </div>
+    <script>
+        
+        const min = 1;
+        const max = 6;
+        const diceElement  =document.getElementById("dice-img");
+
+        function rollDice(){
+
+            const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+            diceElement.src = `${randomNumber}.png`
+        }
+        
+
+    </script>
 </body>
 </html>

@@ -1,47 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dice Roller</title>
     <style>
-        .main-div{
+        .main-div {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding-bottom: 30px;
+            padding-bottom: 15px;
             margin: 50px 540px;
             box-shadow: 1px 1px 2px 1px grey;
         }
-        #dice-img{
-            width: 240px;
-            height: auto;
-            padding: 30px 15px;
-            box-shadow: 1px 1px 1px 1px grey;
+
+        #dice-img {
+            height: 240px;
+            object-fit: cover;
             border-radius: 13px;
             cursor: pointer;
         }
+        #count {
+            font-size: 30px;
+            margin: 0px;
+            padding: 20px 0px;
+        }
     </style>
 </head>
+
 <body>
-    <div class="main-div"> 
-    <h1>Dice Roller🎲</h1>
-    <img src="default.png" alt="dice-1" id="dice-img" onclick="rollDice()">
+    <div class="main-div">
+        <h1>Dice Roller🎲</h1>
+        <img src="default.png" alt="dice-1" id="dice-img" onclick="rollDice()">
+        <p id="count"></p>
     </div>
     <script>
-        
+
         const min = 1;
         const max = 6;
-        const diceElement  =document.getElementById("dice-img");
+        const diceElement = document.getElementById("dice-img");
+        const countElement = document.getElementById("count");
 
-        function rollDice(){
+        function rollDice() {
 
             const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-            diceElement.src = `${randomNumber}.png`
+            diceElement.src = `${randomNumber}.png`;
+            countElement.innerText = `Count is : ${randomNumber}`;
+            countElement.style.padding = "10px";
+            countElement.style.border = "1px solid black";
+            countElement.style.boxShadow = "10px 10px 5px gray";
+            countElement.style.marginTop = "20px";     
+            countElement.style.borderRadius = "10px"; 
+
         }
-        
+
 
     </script>
 </body>
+
 </html>
